@@ -10,6 +10,7 @@ function App() {
   const hundleSubmit = e => {
     e.preventDefault();
     addTodo(value);
+    setValue('');
   }
 
   const addTodo = text => {
