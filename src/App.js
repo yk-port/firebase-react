@@ -17,6 +17,12 @@ function App() {
     setTodos(newTodos);
   }
 
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  }
+
   return (
     <div className="App">
       <Container>
@@ -42,6 +48,11 @@ function App() {
                   <th className="text-left">
                     {todo}
                   </th>
+                  <td className="text-right">
+                    <Button
+                      variant="danger"
+                      onClick={() => removeTodo(index)}>削除</Button>
+                  </td>
                 </tr>
               ))
             }
