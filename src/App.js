@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Container, Form, FormControl, InputGroup, Button } from 'react-bootstrap';
+import { Container, Form, FormControl, InputGroup, Button, Table } from 'react-bootstrap';
 
 function App() {
   const [value, setValue] = useState('');
@@ -15,7 +15,6 @@ function App() {
   const addTodo = text => {
     const newTodos = [...todos, text];
     setTodos(newTodos);
-    console.log(newTodos);
   }
 
   return (
@@ -33,6 +32,21 @@ function App() {
             </InputGroup.Append>
           </InputGroup>
         </Form>
+      </Container>
+      <Container>
+        <Table>
+          <tbody>
+            {
+              todos && todos.map((todo, index) => (
+                <tr key={index}>
+                  <th className="text-left">
+                    {todo}
+                  </th>
+                </tr>
+              ))
+            }
+          </tbody>
+        </Table>
       </Container>
     </div>
   );
