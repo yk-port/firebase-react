@@ -59,8 +59,10 @@ function App() {
                   <td className="text-right">
                     <Button
                       className="mr-2"
-                      variant="success"
-                      onClick={() => completeTodo(index)}>完了</Button>
+                      variant={ todo.complete ? "light" : "warning" }
+                      onClick={() => completeTodo(index)}>
+                        { todo.complete ? '完了' : '未完了' }
+                    </Button>
                     <Button
                       variant="danger"
                       onClick={() => removeTodo(index)}>削除</Button>
